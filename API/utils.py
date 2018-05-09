@@ -22,6 +22,9 @@ ELECTRUMX = {
 rs = redis.StrictRedis(host=REDIS['host'], port=REDIS['port'])
 
 
+FIVE_DAYS = 5 * 24 * 60 * 60
+
+
 ERR_CODE = {
     200: '请求成功',
     4004: '404, not find',
