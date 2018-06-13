@@ -1,11 +1,11 @@
 package com.reactnativereduxexample;
 
-
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.reactnativenavigation.NavigationApplication;
+import com.sbugert.rnadmob.RNAdMobPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,12 +21,13 @@ public class MainApplication extends NavigationApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new RNSpinkitPackage(),
-            new RNAdMobPackage()
+	    new MainReactPackage(),
+	    new RNAdMobPackage()
       );
     }
   };
+
+//new RNSpinkitPackage(),
 
   @Override
   public ReactNativeHost getReactNativeHost() {

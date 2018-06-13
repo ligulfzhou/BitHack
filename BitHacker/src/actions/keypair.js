@@ -29,12 +29,12 @@ export const requestPageNKeypairs = (page=1) => ({
 export const receivePageNKeypairs = (json) => ({
   type: RECEIVE_PAGEN_KEYPAIRS,
   page: json.page,
-  keypairs: json.key_pairs
+  keypairs: json.page_keypairs
 })
 
 export const fetchPageNKeypairs = (page=1) => (dispatch, getState) => {
   dispatch(requestPageNKeypairs(page))
-  return fetch(API_ROOT + '/bit/page?page='+page)
+  return fetch(API_ROOT + '/bit/multi?page='+page)
     .then(response => response.json())
     .then(json => dispatch(receivePageNKeypairs(json)))
 }

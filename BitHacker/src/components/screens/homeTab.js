@@ -11,9 +11,7 @@ import {
 
 import {
   AdMobBanner,
-  AdMobRewarded,
-  AdMobInterstitial,
-  PublisherBanner
+  AdMobInterstitial
 } from 'react-native-admob';
 
 import Spinner from 'react-native-loading-spinner-overlay';
@@ -21,6 +19,7 @@ import { Navigation } from 'react-native-navigation';
 import { connect } from 'react-redux';
 import { fetchKeypair } from '../../actions/keypair';
 import KeypairCell from '../keypairCell';
+import Toast from 'react-native-easy-toast';
 
 
 class Hometab extends Component {
@@ -67,6 +66,7 @@ class Hometab extends Component {
     return (
       <View style={ styles.container }>
         <AdMobBanner
+          testDevices={[AdMobBanner.simulatorId, 'f3f1e0559573881fc3647836492075a3']}
           adSize="banner"
           style={{ alignSelf: 'center' }}
           adUnitID="ca-app-pub-9174125730777485/9899062320"
@@ -92,8 +92,13 @@ class Hometab extends Component {
           data={ dataList }
           contentContainerStyle={{ padding: 3 }}
           ItemSeparatorComponent={() => <View style={{ margin: 3 }} />}
-          renderItem={({ item }) => <KeypairCell keypair={item} key={item.priv} />}
+          renderItem={({ item }) => <KeypairCell keypair={item} key={item.priv} showToast={    
+            () => { this.refs.homeToast.show('private key copied', 500, ()=>{
+              console.log('close toast');
+            })}
+          }/>}
         />
+        <Toast ref='homeToast' position='center' />
       </View>
     );
   }

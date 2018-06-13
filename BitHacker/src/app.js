@@ -52,17 +52,24 @@ export default class  App extends Component {
             {
               label: 'Home',
               screen: 'ReactNativeReduxExample.HomeTab',
-              icon: require('./img/checkmark.png'),
-              selectedIcon: require('./img/checkmark.png'),
-              title: 'Hey',
+              icon: require('./img/home.png'),
+              selectedIcon: require('./img/home.png'),
+              title: 'Gen Keypair',
               overrideBackPress: false,
               navigatorStyle: {}
             },{
-              label: 'Search',
+              label: 'Keypairs',
               screen: 'ReactNativeReduxExample.SearchTab',
-              icon: require('./img/checkmark.png'),
-              selectedIcon: require('./img/checkmark.png'),
-              title: 'Hey',
+              icon: require('./img/bitcoin.png'),
+              selectedIcon: require('./img/bitcoin.png'),
+              title: 'Keypair List',
+              navigatorStyle: {}
+            },{
+              label: 'About',
+              screen: 'ReactNativeReduxExample.InfoTab',
+              icon: require('./img/about.png'),
+              selectedIcon: require('./img/about.png'),
+              title: 'Keypair List',
               navigatorStyle: {}
             }],
         });
